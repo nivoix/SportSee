@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className="navbar">
       <img src={logo} alt="logo" className="logo" />
       <ul className="navbarCardLink">
-        <li href="#">Accuiel</li>
+        <li href="#">Accueil</li>
         <li href="#">Profil</li>
         <li href="#">Réglages</li>
         <li href="#">Communauté</li>

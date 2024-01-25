@@ -1,0 +1,20 @@
+.lateralBar {
+  display: flex;
+  flex-direction: column;
+  height: 690px;
+  background-color: black;
+  color: white;
+  width: 7%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.containerCardActivity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.copyright {
+  font-size: 12px;
+  transform: rotate(-90deg);
+  width: 180px;
+}
