@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo {
+  width: 178px;
+  height: 60.93px;
+}
+.navbarCardLink {
+  width: 90%;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
