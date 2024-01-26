@@ -1,0 +1,37 @@
+.login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 750px;
+  justify-content: space-around;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100px;
+  justify-content: space-between;
+  & p {
+    width: 50%;
+  }
+}
+#userId {
+  width: 50%;
+  & .css-t3ipsp-control {
+    border: 3px solid black;
+  }
+}
+.loginSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btnValidate {
+  background-color: black;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  width: 50%;
+  margin-inline: auto;
+}

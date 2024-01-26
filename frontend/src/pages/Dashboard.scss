@@ -1,7 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  min-width: 1024px;
+  min-height: 780px;
+  position: relative;
+}
+main {
+  display: flex;
+  height: 689px;
+}
+
 .dashboard {
   background-color: red;
   height: max-content;
   padding: 40px;
+  width: 93%;
 }
 .containerGraph {
   display: flex;

@@ -1,28 +1,70 @@
-import "./Dashboard.scss";
+import logo from "../assets/logo.png";
+import { useState } from "react";
+import { generatePath, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Index.scss";
+import Select from "react-select";
 
-const Dasboard = () => {
+const Login = () => {
+  const [userId, setUserId] = useState("");
+  const navigate = useNavigate();
+  const url = `http://localhost:3000/user/${userId}`;
+  const [serverUnavailable, setServerUnavailable] = useState(false);
+  const [userNonexistent, setUserNonexistent] = useState(false);
+
+  const options = [
+    { value: "12", label: "12" },
+    { value: "18", label: "18" },
+  ];
+
+  const handleChange = (e) => {
+    console.log(e.value);
+    setUserId(e.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios(url)
+      .then((response) => {
+        if (response) {
+          const path = generatePath("/user/:userId", { userId });
+          navigate(path);
+        } else {
+          setUserNonexistent(true);
+          setTimeout(() => {
+            setUserNonexistent(false);
+          }, 2000);
+        }
+      })
+      .catch((error) => {
+        setServerUnavailable(true);
+        setTimeout(() => {
+          setServerUnavailable(false);
+        }, 2000);
+        console.log("Error", error.message);
+      });
+  };
+
   return (
-    <div className="dashboard">
-      <h1>Bonjour THOMAS</h1>
-      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-      <div className="containerGraph">
-        <div className="graphiques">
-          <div>Activités</div>
-          <div className="littleGraph">
-            <div>courbe</div>
-            <div>cible</div>
-            <div>score</div>
-          </div>
+    <div className="login">
+      <img src={logo} alt="logo" />
+      <form action="" onSubmit={handleSubmit} className="loginForm">
+        <div className="loginSelect">
+          <p>{"Veuillez sélectionner votre identifiant:"}</p>
+          <Select id="userId" options={options} onChange={handleChange} />
         </div>
-        <div className="CardsNutriment">
-          <div>Cards Nutriment</div>
-          <div>Cards Nutriment</div>
-          <div>Cards Nutriment</div>
-          <div>Cards Nutriment</div>
-        </div>
+        <button className="btnValidate">Valider</button>
+      </form>
+      <div className="login-error">
+        {serverUnavailable && (
+          <p className="login-error-message">{"Serveur indisponible"}</p>
+        )}
+        {userNonexistent && (
+          <p className="login-error-message">{"Utilisateur inexistant"}</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Dasboard;
+export default Login;
