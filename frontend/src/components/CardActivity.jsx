@@ -1,6 +1,6 @@
 import "./CardActivity.scss";
+import propTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const CardActivity = ({ imageURL }) => {
   return (
     <div className="cardActivity">
@@ -9,4 +9,5 @@ const CardActivity = ({ imageURL }) => {
   );
 };
 
+CardActivity.propTypes = { imageURL: propTypes.any };
 export default CardActivity;
