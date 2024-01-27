@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//import routes from "~react-pages";
 import Login from "./pages/Index";
-import Dashboard from "./pages/Dashboard";
+import Data from "./data/Data";
 
 const router = createBrowserRouter([
   { path: "/", element: <Login /> },
 
-  { path: "/user/:userId", element: <Dashboard /> },
+  { path: "/user/:userId", element: <Data /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

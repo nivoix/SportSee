@@ -1,7 +1,7 @@
 {
-  "USER_MAIN_DATA": [
+  "user_main_data": [
     {
-      "id": 12,
+      "userId": 12,
       "userInfos": {
         "firstName": "Karl",
         "lastName": "Dovineau",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "id": 18,
+      "userId": 18,
       "userInfos": {
         "firstName": "Cecilia",
         "lastName": "Ratorez",
