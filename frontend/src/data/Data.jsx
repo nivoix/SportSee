@@ -1,55 +1,26 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import Dashboard from "../pages/Dashboard";
+import useData from "./GetDatas";
+import mockData from "../data/data.json";
 /* import ErrorAPI from "../Error/ErrorAPI"
 import ErrorNoUser from "../Error/ErrorNoUser" */
 
 const Data = () => {
   const id = useParams();
-  const [userData, setUserData] = useState(null);
-  const [activityData, setActivityData] = useState(null);
-  const [averageData, setAverageData] = useState(null);
-  const [performanceData, setperformanceData] = useState(null);
+  let alldatas = {};
+  const dataMocked = true;
 
-  useEffect(() => {
-    axios(`http://localhost:3000/user/${id.userId}`)
-      .then((response) => {
-        setUserData(response.data);
-      })
-      .catch(() => {
-        setUserData(undefined);
-      });
-  }, [id.userId]);
+  const user = useData(`http://localhost:3000/user/${id.userId}`);
+  const activity = useData(`http://localhost:3000/user/${id.userId}/activity`);
+  const average = useData(
+    `http://localhost:3000/user/${id.userId}/average-sessions`
+  );
+  const performance = useData(
+    `http://localhost:3000/user/${id.userId}/performance`
+  );
 
-  useEffect(() => {
-    axios(`http://localhost:3000/user/${id.userId}/activity`)
-      .then((response) => {
-        setActivityData(response.data);
-      })
-      .catch(() => {
-        setActivityData(undefined);
-      });
-  }, [id.userId]);
-
-  useEffect(() => {
-    axios(`http://localhost:3000/user/${id.userId}/average-sessions`)
-      .then((response) => {
-        setAverageData(response.data);
-      })
-      .catch(() => {
-        setAverageData(undefined);
-      });
-  }, [id.userId]);
-  useEffect(() => {
-    axios(`http://localhost:3000/user/${id.userId}/performance`)
-      .then((response) => {
-        setperformanceData(response.data);
-      })
-      .catch(() => {
-        setperformanceData(undefined);
-      });
-  }, [id.userId]);
+  const userMocked = mockData.find((u) => u.userId == id.userId);
+  console.log(userMocked);
   /*
   If data === undefined, there is a problem with the API, returned code 500, Internal server error
   If !data, user not find
@@ -57,19 +28,20 @@ const Data = () => {
   */
   /* if (data === undefined) return <ErrorAPI />
   if (!data) return <ErrorNoUser /> */
-
-  if (
-    userData != null &&
-    activityData != null &&
-    averageData != null &&
-    performanceData != null
+  if (dataMocked) {
+    alldatas = { userMocked };
+    return <Dashboard data={alldatas} />;
+  } else if (
+    user != null &&
+    activity != null &&
+    average != null &&
+    performance != null
   ) {
-    let alldatas = {};
     alldatas = {
-      data: userData.data,
-      activity: activityData.data,
-      average: averageData.data,
-      performance: performanceData.data,
+      user,
+      activity,
+      average,
+      performance,
     };
     return <Dashboard data={alldatas} />;
   }

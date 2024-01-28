@@ -33,14 +33,14 @@ const Login = () => {
           setUserNonexistent(true);
           setTimeout(() => {
             setUserNonexistent(false);
-          }, 2000);
+          }, 3000);
         }
       })
       .catch((error) => {
         setServerUnavailable(true);
         setTimeout(() => {
           setServerUnavailable(false);
-        }, 2000);
+        }, 3000);
         console.log("Error", error.message);
       });
   };

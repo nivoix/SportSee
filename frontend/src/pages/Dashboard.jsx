@@ -4,12 +4,14 @@ import LateralBar from "../components/LateralBar";
 import { PropTypes } from "prop-types";
 
 const Dashboard = (alldatas) => {
-  const { data, activity, average, performance } = alldatas.data;
-  // console.log(data.userInfos);
+  const { userMocked, user, activity, average, performance } = alldatas.data;
+
+  /* 
+  console.log(user);
   console.log(activity.sessions);
   console.log(average.sessions);
   console.log(performance.data);
-  console.log(performance.kind);
+  console.log(performance.kind); */
 
   return (
     <>
@@ -17,7 +19,10 @@ const Dashboard = (alldatas) => {
       <main>
         <LateralBar />
         <div className="dashboard">
-          <h1>Bonjour {data.userInfos.firstName}</h1>
+          <h1>
+            Bonjour{" "}
+            {user?.userInfos.firstName || userMocked.userInfos.firstName}
+          </h1>
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           <div className="containerGraph">
             <div className="graphiques">
@@ -42,7 +47,7 @@ const Dashboard = (alldatas) => {
 };
 
 Dashboard.propTypes = {
-  alldatas: PropTypes.any,
+  alldatas: PropTypes.object,
   userInfos: PropTypes.object,
   activity: PropTypes.object,
   sessions: PropTypes.array,
