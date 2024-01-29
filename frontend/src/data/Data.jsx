@@ -8,7 +8,7 @@ import ErrorNoUser from "../Error/ErrorNoUser" */
 const Data = () => {
   const id = useParams();
   let alldatas = {};
-  const dataMocked = true;
+  const dataMocked = false;
 
   const user = useData(`http://localhost:3000/user/${id.userId}`);
   const activity = useData(`http://localhost:3000/user/${id.userId}/activity`);
@@ -24,7 +24,6 @@ const Data = () => {
   /*
   If data === undefined, there is a problem with the API, returned code 500, Internal server error
   If !data, user not find
-  If all okay, return page, aka Main component, with fetch data 
   */
   /* if (data === undefined) return <ErrorAPI />
   if (!data) return <ErrorNoUser /> */

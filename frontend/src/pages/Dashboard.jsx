@@ -2,13 +2,12 @@ import "./Dashboard.scss";
 import Navbar from "../components/Navbar";
 import LateralBar from "../components/LateralBar";
 import { PropTypes } from "prop-types";
+import ActivityGraph from "../components/ActivityGraph";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
-
+  console.log(userMocked);
   /* 
-  console.log(user);
-  console.log(activity.sessions);
   console.log(average.sessions);
   console.log(performance.data);
   console.log(performance.kind); */
@@ -21,12 +20,18 @@ const Dashboard = (alldatas) => {
         <div className="dashboard">
           <h1>
             Bonjour{" "}
-            {user?.userInfos.firstName || userMocked.userInfos.firstName}
+            <p>
+              {user?.userInfos.firstName || userMocked?.userInfos.firstName}
+            </p>
           </h1>
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           <div className="containerGraph">
             <div className="graphiques">
-              <div>Activités</div>
+              <div className="activityGraph">
+                <ActivityGraph
+                  data={activity?.sessions || userMocked?.activity_sessions}
+                />
+              </div>
               <div className="littleGraph">
                 <div>courbe</div>
                 <div>cible</div>
