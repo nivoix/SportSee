@@ -6,7 +6,7 @@ import ActivityGraph from "../components/ActivityGraph";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
-  console.log(userMocked);
+
   /* 
   console.log(average.sessions);
   console.log(performance.data);

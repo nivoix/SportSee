@@ -1,0 +1,32 @@
+.error-page {
+  & .logo {
+    height: 200px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-inline: 40px;
+    margin-bottom: 40px;
+    padding-top: 40px;
+  }
+  & p {
+    display: flex;
+    justify-content: center;
+    font-size: 56px;
+    margin: 20px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: red;
+  }
+}
+.linkHomePage {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: black;
+  height: 40px;
+  width: 190px;
+  border-radius: 20px;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 60px;
+  margin-inline: auto;
+}

@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import useData from "./GetDatas";
 import mockData from "../data/data.json";
-/* import ErrorAPI from "../Error/ErrorAPI"
-import ErrorNoUser from "../Error/ErrorNoUser" */
+import Error from "../pages/Error";
 
 const Data = () => {
   const id = useParams();
@@ -20,13 +19,7 @@ const Data = () => {
   );
 
   const userMocked = mockData.find((u) => u.userId == id.userId);
-  console.log(userMocked);
-  /*
-  If data === undefined, there is a problem with the API, returned code 500, Internal server error
-  If !data, user not find
-  */
-  /* if (data === undefined) return <ErrorAPI />
-  if (!data) return <ErrorNoUser /> */
+
   if (dataMocked) {
     alldatas = { userMocked };
     return <Dashboard data={alldatas} />;
@@ -43,7 +36,7 @@ const Data = () => {
       performance,
     };
     return <Dashboard data={alldatas} />;
-  }
+  } else return <Error />;
 };
 
 export default Data;

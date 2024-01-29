@@ -18,7 +18,6 @@ const Login = () => {
   ];
 
   const handleChange = (e) => {
-    console.log(e.value);
     setUserId(e.value);
   };
 

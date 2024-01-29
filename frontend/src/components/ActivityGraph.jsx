@@ -16,20 +16,13 @@ const ActivityGraph = (data) => {
   console.log(data);
   return (
     <>
-      <text className="titleactivityGraph">Activité quotidienne</text>
+      <span className="titleactivityGraph">Activité quotidienne</span>
       <ul className="legend">
         <li className="legendPoids">Poids (kg)</li>
         <li className="legendCalories">Calories (Kcal)</li>
       </ul>
       <ResponsiveContainer>
-        <BarChart
-          /* width={702}
-          height={145} */
-          data={data.data}
-          barGap={10}
-          margin={{ top: 60 }}
-          barSize={7}
-        >
+        <BarChart data={data.data} barGap={10} margin={{ top: 60 }} barSize={7}>
           <CartesianGrid strokeDasharray="4 4" opacity={0.8} vertical={false} />
           <XAxis
             dataKey={activityDayNumbers}
