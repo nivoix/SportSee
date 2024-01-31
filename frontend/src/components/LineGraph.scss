@@ -1,0 +1,15 @@
+.lineGraph {
+  position: relative;
+  background-color: #ff0000;
+  overflow: hidden;
+  border-radius: 5px;
+  & .titleLineGraph {
+    position: absolute;
+    width: 75%;
+    color: white;
+    opacity: 0.5;
+    font-size: 12px;
+    top: 15px;
+    left: 15px;
+  }
+}

@@ -15,9 +15,8 @@ main {
 }
 
 .dashboard {
-  border: 3px solid red;
   height: max-content;
-  padding: 20px 60px;
+  padding: 20px 50px;
   width: 93%;
 }
 h1 {
@@ -33,7 +32,7 @@ h1 {
   justify-content: space-between;
 }
 .graphiques {
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,5 +49,19 @@ h1 {
 }
 .littleGraph {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 210px;
+  margin-top: 30px;
+  /* & p {
+    position: absolute;
+    width: 30%;
+    color: white;
+    opacity: 0.5;
+  } */
+}
+.lineGraph,
+.radar,
+.score {
+  width: 200px;
+  height: 200px;
 }

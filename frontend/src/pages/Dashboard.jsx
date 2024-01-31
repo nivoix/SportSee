@@ -3,16 +3,17 @@ import Navbar from "../components/Navbar";
 import LateralBar from "../components/LateralBar";
 import { PropTypes } from "prop-types";
 import ActivityGraph from "../components/ActivityGraph";
+import LineGraph from "../components/LineGraph";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
 
-  /* 
   console.log(average.sessions);
+  /* 
   console.log(performance.data);
   console.log(performance.kind); */
 
-  return (
+  return alldatas.data ? (
     <>
       <Navbar />
       <main>
@@ -33,9 +34,11 @@ const Dashboard = (alldatas) => {
                 />
               </div>
               <div className="littleGraph">
-                <div>courbe</div>
-                <div>cible</div>
-                <div>score</div>
+                <LineGraph
+                  data={average?.sessions || userMocked?.average_sessions}
+                />
+                <div className="radar">cible</div>
+                <div className="score">score</div>
               </div>
             </div>
             <div className="CardsNutriment">
@@ -48,6 +51,8 @@ const Dashboard = (alldatas) => {
         </div>
       </main>
     </>
+  ) : (
+    ""
   );
 };
 

@@ -8,12 +8,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./ActivityGraph.scss";
+import CustomTooltip from "../utils/CustomTooltip";
 
 const ActivityGraph = (data) => {
   const activityDayNumbers = () => {
     return data.data.map((session, index) => index + 1);
   };
-  console.log(data);
+  console.log(data.data);
   return (
     <>
       <span className="titleactivityGraph">Activité quotidienne</span>
@@ -26,7 +27,7 @@ const ActivityGraph = (data) => {
           <CartesianGrid strokeDasharray="4 4" opacity={0.8} vertical={false} />
           <XAxis
             dataKey={activityDayNumbers}
-            padding={{ left: -31, right: -32 }}
+            padding={{ left: -28, right: -32 }}
             tickLine={false}
             tick={{ stroke: "#9B9EAC", fontWeight: "400" }}
           />
@@ -49,7 +50,7 @@ const ActivityGraph = (data) => {
             hide={true}
             domain={["dataMin - 50", "dataMax +100"]}
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Bar
             yAxisId="kilogram"
             dataKey="kilogram"
