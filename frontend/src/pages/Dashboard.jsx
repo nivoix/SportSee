@@ -5,6 +5,7 @@ import { PropTypes } from "prop-types";
 import ActivityGraph from "../components/ActivityGraph";
 import LineGraph from "../components/LineGraph";
 import RadarGraph from "../components/RadarGraph";
+import ScoreGraph from "../components/ScoreGraph";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
@@ -43,7 +44,7 @@ const Dashboard = (alldatas) => {
                   data={average?.sessions || userMocked?.average_sessions}
                 />
                 <RadarGraph data={dataFormated} />
-                <div className="score">score</div>
+                <ScoreGraph data={user || userMocked} />
               </div>
             </div>
             <div className="CardsNutriment">
