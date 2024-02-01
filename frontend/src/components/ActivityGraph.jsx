@@ -14,7 +14,6 @@ const ActivityGraph = (data) => {
   const activityDayNumbers = () => {
     return data.data.map((session, index) => index + 1);
   };
-  console.log(data.data);
   return (
     <>
       <span className="titleactivityGraph">Activité quotidienne</span>

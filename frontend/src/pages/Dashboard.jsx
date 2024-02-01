@@ -4,14 +4,19 @@ import LateralBar from "../components/LateralBar";
 import { PropTypes } from "prop-types";
 import ActivityGraph from "../components/ActivityGraph";
 import LineGraph from "../components/LineGraph";
+import RadarGraph from "../components/RadarGraph";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
 
-  console.log(average.sessions);
-  /* 
-  console.log(performance.data);
-  console.log(performance.kind); */
+  const dataFormated = (performance?.data || userMocked.performance.data)
+    .map((dataKind) => ({
+      ...dataKind,
+      kind:
+        performance?.kind[dataKind.kind] ||
+        userMocked.performance.kind[dataKind.kind],
+    }))
+    .reverse();
 
   return alldatas.data ? (
     <>
@@ -37,7 +42,7 @@ const Dashboard = (alldatas) => {
                 <LineGraph
                   data={average?.sessions || userMocked?.average_sessions}
                 />
-                <div className="radar">cible</div>
+                <RadarGraph data={dataFormated} />
                 <div className="score">score</div>
               </div>
             </div>
@@ -52,7 +57,7 @@ const Dashboard = (alldatas) => {
       </main>
     </>
   ) : (
-    ""
+    "loading"
   );
 };
 

@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import useData from "./GetDatas";
 import mockData from "../data/data.json";
 import Error from "../pages/Error";
 
 const Data = () => {
+  let { state } = useLocation();
   const id = useParams();
   let alldatas = {};
-  const dataMocked = false;
 
   const user = useData(`http://localhost:3000/user/${id.userId}`);
   const activity = useData(`http://localhost:3000/user/${id.userId}/activity`);
@@ -20,11 +20,11 @@ const Data = () => {
 
   const userMocked = mockData.find((u) => u.userId == id.userId);
 
-  if (dataMocked) {
+  if (state.key.dataSelected === "dataMocked") {
     alldatas = { userMocked };
     return <Dashboard data={alldatas} />;
   } else if (
-    user != null &&
+    (state.key.dataSelected === "API") & (user != null) &&
     activity != null &&
     average != null &&
     performance != null
