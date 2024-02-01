@@ -6,6 +6,11 @@ import ActivityGraph from "../components/ActivityGraph";
 import LineGraph from "../components/LineGraph";
 import RadarGraph from "../components/RadarGraph";
 import ScoreGraph from "../components/ScoreGraph";
+import NutrientsCard from "../components/NutrientsCard";
+import calories from "../assets/calories.svg";
+import proteines from "../assets/proteines.svg";
+import glucides from "../assets/glucides.svg";
+import lipides from "../assets/lipides.svg";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
@@ -31,7 +36,9 @@ const Dashboard = (alldatas) => {
               {user?.userInfos.firstName || userMocked?.userInfos.firstName}
             </p>
           </h1>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+          <p className="felicitation">
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          </p>
           <div className="containerGraph">
             <div className="graphiques">
               <div className="activityGraph">
@@ -48,10 +55,40 @@ const Dashboard = (alldatas) => {
               </div>
             </div>
             <div className="CardsNutriment">
-              <div>Cards Nutriment</div>
-              <div>Cards Nutriment</div>
-              <div>Cards Nutriment</div>
-              <div>Cards Nutriment</div>
+              <NutrientsCard
+                imageUrl={calories}
+                count={(
+                  user?.keyData.calorieCount / 1000 ||
+                  userMocked?.keyData.calorieCount / 1000
+                ).toFixed(3)}
+                unity="kCal"
+                name="Calories"
+              />
+              <NutrientsCard
+                imageUrl={proteines}
+                count={
+                  user?.keyData.proteinCount || userMocked?.keyData.proteinCount
+                }
+                unity="g"
+                name="Protéines"
+              />
+              <NutrientsCard
+                imageUrl={glucides}
+                count={
+                  user?.keyData.carbohydrateCount ||
+                  userMocked?.keyData.carbohydrateCount
+                }
+                unity="g"
+                name="Glucides"
+              />
+              <NutrientsCard
+                imageUrl={lipides}
+                count={
+                  user?.keyData.lipidCount || userMocked?.keyData.lipidCount
+                }
+                unity="g"
+                name="Lipides"
+              />
             </div>
           </div>
         </div>

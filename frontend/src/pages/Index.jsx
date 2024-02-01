@@ -53,7 +53,7 @@ const Login = () => {
           <Select id="userId" options={options} onChange={handleChangeId} />
         </div>
         <div className="loginSelect">
-          <p>{"Veuillez sélectionner votre identifiant:"}</p>
+          <p>{"Veuillez sélectionner votre source de données:"}</p>
           <Select
             id="userId"
             options={optionData}

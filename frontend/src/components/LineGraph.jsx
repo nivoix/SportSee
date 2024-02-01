@@ -49,7 +49,7 @@ const LineGraph = (data) => {
             cursor={{
               stroke: "#000000",
               strokeOpacity: "10%",
-              strokeWidth: "205px",
+              strokeWidth: "215px",
               style: {
                 transform: "translateX(42%) translateY(-7px) scaleY(1.5)",
               },
