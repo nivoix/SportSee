@@ -24,6 +24,11 @@ const Dashboard = (alldatas) => {
     }))
     .reverse();
 
+  const colorCalories = "#fbeaea";
+  const colorProteines = "#e9f4fb";
+  const colorGlucides = "#faf6e5";
+  const colorLipides = "#fbeaef";
+
   return alldatas.data ? (
     <>
       <Navbar />
@@ -57,6 +62,7 @@ const Dashboard = (alldatas) => {
             <div className="CardsNutriment">
               <NutrientsCard
                 imageUrl={calories}
+                color={colorCalories}
                 count={(
                   user?.keyData.calorieCount / 1000 ||
                   userMocked?.keyData.calorieCount / 1000
@@ -66,6 +72,7 @@ const Dashboard = (alldatas) => {
               />
               <NutrientsCard
                 imageUrl={proteines}
+                color={colorProteines}
                 count={
                   user?.keyData.proteinCount || userMocked?.keyData.proteinCount
                 }
@@ -74,6 +81,7 @@ const Dashboard = (alldatas) => {
               />
               <NutrientsCard
                 imageUrl={glucides}
+                color={colorGlucides}
                 count={
                   user?.keyData.carbohydrateCount ||
                   userMocked?.keyData.carbohydrateCount
@@ -83,6 +91,7 @@ const Dashboard = (alldatas) => {
               />
               <NutrientsCard
                 imageUrl={lipides}
+                color={colorLipides}
                 count={
                   user?.keyData.lipidCount || userMocked?.keyData.lipidCount
                 }

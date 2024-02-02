@@ -21,13 +21,13 @@ const Login = () => {
     { value: "dataMocked", label: "dataMocked" },
   ];
 
+  /* selection de l'utilisateur et de la source des données */
   const handleChangeId = (e) => {
     setUserId(e.value);
   };
   const handleChangeData = (e) => {
     setDataSelected(e.value);
   };
-  /* selection de l'utilisateur et de la source des données */
   const handleSubmit = (e) => {
     e.preventDefault();
     axios(url)

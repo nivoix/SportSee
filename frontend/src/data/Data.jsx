@@ -20,7 +20,9 @@ const Data = () => {
 
   const userMocked = mockData.find((u) => u.userId == id.userId);
 
-  if (state.key.dataSelected === "dataMocked") {
+  if (state === null) {
+    return <Error />;
+  } else if (state.key.dataSelected === "dataMocked") {
     alldatas = { userMocked };
     return <Dashboard data={alldatas} />;
   } else if (
@@ -36,7 +38,7 @@ const Data = () => {
       performance,
     };
     return <Dashboard data={alldatas} />;
-  } else return <Error />;
+  }
 };
 
 export default Data;

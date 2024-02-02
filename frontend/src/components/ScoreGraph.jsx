@@ -2,9 +2,7 @@ import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
 import "./ScoreGraph.scss";
 
 const ScoreGraph = (data) => {
-  console.log(data.data);
   const dataFormated = data.data.todayScore * 100 || data.data.score * 100;
-  console.log(dataFormated);
   const normalizedData = [
     { value: 100, fill: "#fff" },
     { value: dataFormated, fill: "#ff0000" },

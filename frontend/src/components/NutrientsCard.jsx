@@ -2,10 +2,21 @@ import { PropTypes } from "prop-types";
 import "./NutrientsCard.scss";
 
 const NutrientsCard = (data) => {
-  const { imageUrl, count, unity, name } = data;
+  const { imageUrl, count, unity, name, color } = data;
+
+  const styleCardImage = {
+    width: "60px",
+    height: "60px",
+    backgroundColor: `${color}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "5px",
+  };
+
   return (
     <div className="nutrientsCard">
-      <div className="cardIconeNutrient">
+      <div className="cardIconeNutrient" style={styleCardImage}>
         <img src={imageUrl} alt="" className="imageNutrient" />
       </div>
       <div className="infoNutrient">
