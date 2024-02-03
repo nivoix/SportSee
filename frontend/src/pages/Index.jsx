@@ -1,7 +1,6 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
-import { generatePath, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Index.scss";
 import Select from "react-select";
 
@@ -9,8 +8,6 @@ const Login = () => {
   const [userId, setUserId] = useState("");
   const [dataSelected, setDataSelected] = useState("");
   const navigate = useNavigate();
-  const url = `http://localhost:3000/user/${userId}`;
-  const [serverUnavailable, setServerUnavailable] = useState(false);
 
   const options = [
     { value: "12", label: "12" },
@@ -30,27 +27,21 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios(url)
-      .then((response) => {
-        const path = generatePath(`/user/${userId}`, response.data.data);
-        navigate(path, { state: { key: { dataSelected } } });
-      })
-      .catch((error) => {
-        setServerUnavailable(true);
-        setTimeout(() => {
-          setServerUnavailable(false);
-        }, 3000);
-        console.log("Error", error.message);
-      });
+    navigate(`/user/${userId}`, { state: { key: { dataSelected } } });
   };
 
   return (
     <div className="login">
-      <img src={logo} alt="logo" />
+      <img src={logo} alt="logo" className="loginLogo" />
       <form action="" onSubmit={handleSubmit} className="loginForm">
         <div className="loginSelect">
           <p>{"Veuillez sélectionner votre identifiant:"}</p>
-          <Select id="userId" options={options} onChange={handleChangeId} />
+          <Select
+            id="userId"
+            options={options}
+            onChange={handleChangeId}
+            required
+          />
         </div>
         <div className="loginSelect">
           <p>{"Veuillez sélectionner votre source de données:"}</p>
@@ -58,15 +49,11 @@ const Login = () => {
             id="userId"
             options={optionData}
             onChange={handleChangeData}
+            required
           />
         </div>
         <button className="btnValidate">Valider</button>
       </form>
-      <div className="login-error">
-        {serverUnavailable && (
-          <p className="login-error-message">{"Serveur indisponible"}</p>
-        )}
-      </div>
     </div>
   );
 };

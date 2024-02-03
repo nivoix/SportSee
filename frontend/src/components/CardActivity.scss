@@ -8,3 +8,9 @@
   align-items: center;
   cursor: pointer;
 }
+@media (width < 425px) {
+  .cardActivity {
+    width: 45px;
+    height: 45px;
+  }
+}

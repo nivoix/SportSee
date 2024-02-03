@@ -26,7 +26,8 @@ const Data = () => {
     alldatas = { userMocked };
     return <Dashboard data={alldatas} />;
   } else if (
-    (state.key.dataSelected === "API") & (user != null) &&
+    state.key.dataSelected === "API" &&
+    user != null &&
     activity != null &&
     average != null &&
     performance != null

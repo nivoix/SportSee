@@ -26,7 +26,6 @@ const ActivityGraph = (data) => {
           <CartesianGrid strokeDasharray="4 4" opacity={0.8} vertical={false} />
           <XAxis
             dataKey={activityDayNumbers}
-            padding={{ left: -28, right: -32 }}
             tickLine={false}
             tick={{ stroke: "#9B9EAC", fontWeight: "400" }}
           />

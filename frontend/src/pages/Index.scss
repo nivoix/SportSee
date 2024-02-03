@@ -4,16 +4,19 @@
   flex-direction: column;
   height: 750px;
   justify-content: space-around;
+  & .loginLogo {
+    width: 40%;
+  }
 }
 .loginForm {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 200px;
+  height: 300px;
   justify-content: space-between;
   gap: 20px;
   & p {
-    width: 50%;
+    width: 65%;
     text-align: end;
     padding-inline-end: 10px;
   }
@@ -36,4 +39,31 @@
   cursor: pointer;
   width: 20%;
   margin-inline: auto;
+}
+@media (width < 768px) {
+  .login {
+    height: 650px;
+  }
+  .loginLogo {
+    width: 50%;
+  }
+  .loginForm {
+    height: 350px;
+  }
+  .loginSelect {
+    flex-direction: column;
+    margin: 0;
+    & p {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  #userId {
+    width: 35%;
+  }
+}
+@media (width < 475px) {
+  .loginLogo {
+    width: 60%;
+  }
 }

@@ -4,14 +4,12 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-body {
-  min-width: 1024px;
-  min-height: 780px;
-  position: relative;
-}
+
 main {
   display: flex;
-  height: 689px;
+  min-width: 1024px;
+  min-height: 689px;
+  position: relative;
 }
 
 .dashboard {
@@ -50,17 +48,57 @@ h1 {
   flex-direction: column;
   width: 20%;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .littleGraph {
   display: flex;
   justify-content: space-between;
   height: 210px;
   margin-top: 30px;
+  gap: 2%;
 }
 .lineGraph,
 .radarGraph,
 .scoreGraph {
   width: 210px;
   height: 210px;
+}
+
+@media (width < 1024px) {
+  main {
+    min-width: 320px;
+    height: max-content;
+  }
+  .dashboard {
+    padding: 20px;
+  }
+  .containerGraph {
+    flex-direction: column-reverse;
+  }
+  .graphiques {
+    width: 100%;
+  }
+  .CardsNutriment {
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .littleGraph {
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+    justify-content: space-evenly;
+  }
+}
+@media (width < 768px) {
+  main {
+    flex-direction: column-reverse;
+  }
+  .dashboard {
+    width: 100%;
+  }
+  .CardsNutriment {
+    justify-content: space-around;
+  }
 }

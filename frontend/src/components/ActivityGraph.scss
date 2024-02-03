@@ -25,7 +25,6 @@
   content: "";
   aspect-ratio: 1/1;
   height: 10px;
-  /* padding-right: 8px; */
   background-color: red;
   border-radius: 50%;
 }
@@ -42,4 +41,19 @@
   height: 10px;
   background-color: black;
   border-radius: 50%;
+}
+@media (width< 768px) {
+  .legend {
+    left: 25px;
+    top: 40px;
+    align-items: flex-start;
+    width: auto;
+  }
+  .legendCalories,
+  .legendPoids {
+    justify-content: flex-start;
+  }
+  .legendPoids {
+    width: 40%;
+  }
 }
