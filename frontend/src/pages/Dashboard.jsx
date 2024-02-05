@@ -14,7 +14,6 @@ import lipides from "../assets/lipides.svg";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
-
   const dataFormated = (performance?.data || userMocked.performance.data)
     .map((dataKind) => ({
       ...dataKind,

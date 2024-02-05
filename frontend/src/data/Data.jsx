@@ -5,7 +5,7 @@ import mockData from "../data/data.json";
 import Error from "../pages/Error";
 
 const Data = () => {
-  let { state } = useLocation();
+  const { state } = useLocation();
   const id = useParams();
   let alldatas = {};
 
