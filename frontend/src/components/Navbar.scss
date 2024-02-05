@@ -8,21 +8,21 @@
   justify-content: space-around;
   font-weight: 500;
   font-size: 24px;
-}
-.logo {
-  width: 178px;
-  height: 60px;
-}
-.navbarCardLink {
-  width: 81%;
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  & .navbarLink {
-    cursor: pointer;
+  & .logo {
+    width: 178px;
+    height: 60px;
+  }
+  & .navbarCardLink {
+    width: 81%;
     color: white;
-    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    & .navbarLink {
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 @media (width < 768px) {
@@ -30,9 +30,9 @@
     flex-direction: column;
     height: 115px;
     font-size: 20px;
-  }
-  .navbarCardLink {
-    width: 100%;
+    & .navbarCardLink {
+      width: 100%;
+    }
   }
 }
 @media (width < 425px) {

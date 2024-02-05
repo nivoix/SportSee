@@ -13,34 +13,34 @@
   width: 53%;
   top: 15px;
   align-items: center;
-}
-.legendCalories {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  justify-content: flex-end;
-  gap: 8px;
-}
-.legendCalories:before {
-  content: "";
-  aspect-ratio: 1/1;
-  height: 10px;
-  background-color: red;
-  border-radius: 50%;
-}
-.legendPoids {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  justify-content: flex-end;
-  gap: 8px;
-}
-.legendPoids:before {
-  content: "";
-  aspect-ratio: 1/1;
-  height: 10px;
-  background-color: black;
-  border-radius: 50%;
+  & .legendCalories {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  & .legendCalories:before {
+    content: "";
+    aspect-ratio: 1/1;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  & .legendPoids {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  & .legendPoids:before {
+    content: "";
+    aspect-ratio: 1/1;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+  }
 }
 @media (width< 768px) {
   .legend {
@@ -48,12 +48,12 @@
     top: 40px;
     align-items: flex-start;
     width: auto;
-  }
-  .legendCalories,
-  .legendPoids {
-    justify-content: flex-start;
-  }
-  .legendPoids {
-    width: 40%;
+    & .legendCalories,
+    .legendPoids {
+      justify-content: flex-start;
+    }
+    & .legendPoids {
+      width: 40%;
+    }
   }
 }

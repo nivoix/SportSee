@@ -7,59 +7,59 @@
   & .loginLogo {
     width: 40%;
   }
-}
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 300px;
-  justify-content: space-between;
-  gap: 20px;
-  & p {
-    width: 65%;
-    text-align: end;
-    padding-inline-end: 10px;
+  & .loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+    gap: 20px;
+    & .loginSelect {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-inline-end: 22%;
+      & p {
+        width: 65%;
+        text-align: end;
+        padding-inline-end: 10px;
+      }
+      & #userId {
+        width: 20%;
+      }
+    }
+    & .btnValidate {
+      background-color: black;
+      height: 40px;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      width: 20%;
+      margin-inline: auto;
+    }
   }
-}
-#userId {
-  width: 20%;
-}
-.loginSelect {
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline-end: 22%;
-}
-.btnValidate {
-  background-color: black;
-  height: 40px;
-  border-radius: 25px;
-  color: white;
-  cursor: pointer;
-  width: 20%;
-  margin-inline: auto;
 }
 @media (width < 768px) {
   .login {
     height: 650px;
-  }
-  .loginLogo {
-    width: 50%;
-  }
-  .loginForm {
-    height: 350px;
-  }
-  .loginSelect {
-    flex-direction: column;
-    margin: 0;
-    & p {
-      width: 100%;
-      text-align: center;
+    & .loginLogo {
+      width: 50%;
     }
-  }
-  #userId {
-    width: 35%;
+    & .loginForm {
+      height: 350px;
+      & .loginSelect {
+        flex-direction: column;
+        margin: 0;
+        & p {
+          width: 100%;
+          text-align: center;
+        }
+        & #userId {
+          width: 35%;
+        }
+      }
+    }
   }
 }
 @media (width < 475px) {

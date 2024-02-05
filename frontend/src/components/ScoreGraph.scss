@@ -2,28 +2,28 @@
   position: relative;
   border: 1px solid red;
   border-radius: 5px;
-}
-.scoreGraphTitle {
-  position: absolute;
-  top: 12%;
-  left: 7%;
-  font-size: 15px;
-  font-weight: 500;
-}
-.résultat {
-  position: absolute;
-  top: 31%;
-  left: 40%;
-  font-weight: 700;
-  font-size: 26px;
-  color: #282d30;
-}
-.résultatText {
-  position: absolute;
-  color: #74798c;
-  font-size: 16px;
-  font-weight: 500;
-  width: 28%;
-  top: 46%;
-  left: 37%;
+  & .scoreGraphTitle {
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  & .résultat {
+    position: absolute;
+    top: 31%;
+    left: 40%;
+    font-weight: 700;
+    font-size: 26px;
+    color: #282d30;
+  }
+  & .résultatText {
+    position: absolute;
+    color: #74798c;
+    font-size: 16px;
+    font-weight: 500;
+    width: 28%;
+    top: 46%;
+    left: 37%;
+  }
 }

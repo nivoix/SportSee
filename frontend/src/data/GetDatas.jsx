@@ -6,16 +6,14 @@ function useData(url) {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    if (url) {
-      axios
-        .get(url)
-        .then((response) => response.data)
-        .then((data) => setUserData(data.data))
-        .catch((error) => console.log(error))
-        .finally(() => {
-          return <Error />;
-        });
-    }
+    axios
+      .get(url)
+      .then((response) => response.data)
+      .then((data) => setUserData(data.data))
+      .catch((error) => console.log(error))
+      .finally(() => {
+        return <Error />;
+      });
   }, [url]);
   return userData;
 }
