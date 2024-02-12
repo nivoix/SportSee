@@ -14,6 +14,19 @@ import lipides from "../assets/lipides.svg";
 
 const Dashboard = (alldatas) => {
   const { userMocked, user, activity, average, performance } = alldatas.data;
+
+  /***modification des données pour le graph RADAR
+   *  "data":                     **      "kind": {
+      { "clef A" : valeur A       **      "clef B" : valeur B
+        "value"  : 200,           **         "1"   : "cardio"}
+        "kind"   : 1              **
+      },                          **
+      on duplique "data"
+      puis on remplace la valeurA de sa clefA 
+      par la valeurB dont la clefB est égale à la valeurA
+      ici "kind":1 devient "kind":"cardio"
+      puis on inverse le tableau afin que les données soient bien positionnées
+   */
   const dataFormated = (performance?.data || userMocked.performance.data)
     .map((dataKind) => ({
       ...dataKind,
@@ -23,6 +36,7 @@ const Dashboard = (alldatas) => {
     }))
     .reverse();
 
+  /***couleurs passées à une variable pour les cards des nutriment */
   const colorCalories = "#fbeaea";
   const colorProteines = "#e9f4fb";
   const colorGlucides = "#faf6e5";

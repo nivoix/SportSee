@@ -11,6 +11,10 @@ import "./ActivityGraph.scss";
 import CustomTooltip from "../utils/CustomTooltip";
 
 const ActivityGraph = (data) => {
+  /***modification des données
+   * les dates sont mapées et on récupère l'index+1
+   * pour obtenir J1, J2, J3....J7
+   */
   const activityDayNumbers = () => {
     return data.data.map((session, index) => index + 1);
   };

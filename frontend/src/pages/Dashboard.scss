@@ -102,3 +102,11 @@ main {
     }
   }
 }
+
+@media (width <= 425px) {
+  .dashboard {
+    & .felicitation {
+      text-align: center;
+    }
+  }
+}

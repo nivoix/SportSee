@@ -21,3 +21,8 @@
     }
   }
 }
+@media (width <= 425px) {
+  .nutrientsCard {
+    margin-inline: auto;
+  }
+}

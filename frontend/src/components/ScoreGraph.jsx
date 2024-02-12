@@ -2,7 +2,11 @@ import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
 import "./ScoreGraph.scss";
 
 const ScoreGraph = (data) => {
+  /***modifier les données décimales en valeur de pourcentage */
   const dataFormated = data.data.todayScore * 100 || data.data.score * 100;
+  /***besoin d'une valeur à 100% en blanc sur fond blanc
+   * et de la donnée formatée en rouge sur fond gris
+   * */
   const normalizedData = [
     { value: 100, fill: "#fff" },
     { value: dataFormated, fill: "#ff0000" },
@@ -21,7 +25,7 @@ const ScoreGraph = (data) => {
           startAngle={90}
           endAngle={450}
         >
-          <RadialBar cornerRadius={100} background dataKey="value" />
+          <RadialBar cornerRadius={100} dataKey="value" />
         </RadialBarChart>
       </ResponsiveContainer>
     </div>
