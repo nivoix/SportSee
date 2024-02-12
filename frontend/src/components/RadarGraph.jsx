@@ -20,12 +20,7 @@ const RadarGraph = ({ data }) => {
             tick={{ fontSize: "10px", fontWeight: "400" }}
             stroke="#FFFFFF"
           />
-          <Radar
-            dataKey="value"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
-          />
+          <Radar dataKey="value" fill="#ff0000" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
     </div>
