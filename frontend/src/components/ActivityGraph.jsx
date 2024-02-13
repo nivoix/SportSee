@@ -11,13 +11,6 @@ import "./ActivityGraph.scss";
 import CustomTooltip from "../utils/CustomTooltip";
 
 const ActivityGraph = (data) => {
-  /***modification des données
-   * les dates sont mapées et on récupère l'index+1
-   * pour obtenir J1, J2, J3....J7
-   */
-  const activityDayNumbers = () => {
-    return data.data.map((session, index) => index + 1);
-  };
   return (
     <>
       <span className="titleactivityGraph">Activité quotidienne</span>
@@ -26,10 +19,15 @@ const ActivityGraph = (data) => {
         <li className="legendCalories">Calories (Kcal)</li>
       </ul>
       <ResponsiveContainer>
-        <BarChart data={data.data} barGap={10} margin={{ top: 60 }} barSize={7}>
+        <BarChart
+          data={data.data.formattedData}
+          barGap={10}
+          margin={{ top: 60 }}
+          barSize={7}
+        >
           <CartesianGrid strokeDasharray="4 4" opacity={0.8} vertical={false} />
           <XAxis
-            dataKey={activityDayNumbers}
+            dataKey="day"
             tickLine={false}
             tick={{ stroke: "#9B9EAC", fontWeight: "400" }}
           />

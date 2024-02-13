@@ -10,13 +10,6 @@ import CustomTooltipLineGraph from "../utils/CustomTooltipLineGraph";
 import "./LineGraph.scss";
 
 const LineGraph = (data) => {
-  /***création des jours de la semaine */
-  const daysWeek = ["L", "M", "M", "J", "V", "S", "D"];
-
-  /***distribution des jours de la semaine aux valeurs de chaque session */
-  const xAxisValue = () =>
-    data.data.map((session) => daysWeek[session.day - 1]);
-
   return (
     <div className="lineGraph">
       <p className="titleLineGraph">Durée moyenne des sessions</p>
@@ -31,7 +24,7 @@ const LineGraph = (data) => {
           <XAxis
             axisLine={false}
             tickLine={false}
-            dataKey={xAxisValue}
+            dataKey="day"
             tick={{
               fill: "#FFFFFF",
               opacity: "0.5",

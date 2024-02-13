@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Error from "../pages/Error";
 
-function useData(url) {
+const useData = (url) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -16,5 +16,5 @@ function useData(url) {
       });
   }, [url]);
   return userData;
-}
+};
 export default useData;
